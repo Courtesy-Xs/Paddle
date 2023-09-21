@@ -45,7 +45,7 @@ std::vector<pir::Operation *> GroupOp::Ops() {
 
 void GroupOp::Verify() {}
 
-void GroupOp::Print(pir::IrPrinter &printer) {
+void GroupOp::Print(pir::ir_utils::IrPrinter &printer) {
   auto &os = printer.os;
   auto op = operation();
   printer.PrintOpResult(op);

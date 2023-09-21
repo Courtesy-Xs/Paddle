@@ -157,7 +157,7 @@ class TestDialect : public pir::Dialect {
   static const char *name() { return "test"; }
 
   void PrintOperation(pir::Operation *op,
-                      pir::IrPrinter &printer) const override {
+                      pir::ir_utils::IrPrinter &printer) const override {
     printer.PrintOpResult(op);
     printer.os << " =";
 

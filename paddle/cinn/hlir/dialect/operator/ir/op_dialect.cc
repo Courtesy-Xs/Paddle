@@ -56,7 +56,7 @@ void OperatorDialect::PrintAttribute(pir::Attribute attr,
 }
 
 void OperatorDialect::PrintOperation(pir::Operation *op,
-                                     pir::IrPrinter &printer) const {
+                                     pir::ir_utils::IrPrinter &printer) const {
   if (auto group_op = op->dyn_cast<GroupOp>()) {
     group_op.Print(printer);
   } else {

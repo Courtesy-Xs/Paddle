@@ -37,7 +37,7 @@ class GroupOp : public pir::Op<GroupOp> {
   std::vector<pir::Operation *> Ops();
 
   void Verify();
-  void Print(pir::IrPrinter &printer);  // NOLINT
+  void Print(pir::ir_utils::IrPrinter &printer);  // NOLINT
 };
 
 }  // namespace dialect

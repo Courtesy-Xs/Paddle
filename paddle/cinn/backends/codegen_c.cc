@@ -61,7 +61,7 @@ void CodeGenC::Compile(const ir::Module &module, const Outputs &outputs) {
   }
 }
 
-CodeGenC::CodeGenC(Target target) : ir::IrPrinter(ss_) {}
+CodeGenC::CodeGenC(Target target) : ir::ir_utils::IrPrinter(ss_) {}
 
 std::string CodeGenC::Compile(const ir::Module &module,
                               OutputKind output_kind) {
@@ -554,9 +554,13 @@ void CodeGenC::Visit(const ir::Broadcast *op) {
   str_ += ")";
 }
 
-void CodeGenC::Visit(const ir::FracOp *op) { ir::IrPrinter::Visit(op); }
-void CodeGenC::Visit(const ir::Sum *op) { ir::IrPrinter::Visit(op); }
-void CodeGenC::Visit(const ir::Product *op) { ir::IrPrinter::Visit(op); }
+void CodeGenC::Visit(const ir::FracOp *op) {
+  ir::ir_utils::IrPrinter::Visit(op);
+}
+void CodeGenC::Visit(const ir::Sum *op) { ir::ir_utils::IrPrinter::Visit(op); }
+void CodeGenC::Visit(const ir::Product *op) {
+  ir::ir_utils::IrPrinter::Visit(op);
+}
 
 void CodeGenC::PrintCastExpr(const Type &type, Expr e) {
   str_ += "((";

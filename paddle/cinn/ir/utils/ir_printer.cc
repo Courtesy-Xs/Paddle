@@ -28,7 +28,7 @@
 
 namespace cinn {
 namespace ir {
-
+namespace ir_utils {
 using common::bfloat16;
 using common::float16;
 
@@ -667,10 +667,10 @@ void IrPrinter::Visit(const intrinsics::BuiltinIntrin *x) {
 
   str_ += ")";
 }
-
+}  // namespace ir_utils
 std::ostream &operator<<(std::ostream &os, Expr a) {
   std::stringstream ss;
-  IrPrinter printer(ss);
+  ir_utils::IrPrinter printer(ss);
   printer.Print(a);
   os << ss.str();
   return os;
@@ -678,7 +678,7 @@ std::ostream &operator<<(std::ostream &os, Expr a) {
 
 std::ostream &operator<<(std::ostream &os, const std::vector<Expr> &a) {
   std::stringstream ss;
-  IrPrinter printer(ss);
+  ir_utils::IrPrinter printer(ss);
   printer.Print(a);
   os << ss.str();
   return os;
